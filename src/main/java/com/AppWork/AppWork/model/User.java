@@ -1,12 +1,11 @@
-package model;
-
-import com.sun.istack.NotNull;
+package com.AppWork.AppWork.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -32,7 +31,7 @@ public class User implements Serializable {
     @NotEmpty
     private String password;
 
-    public User(@NotEmpty String firstName, @NotEmpty String lastName, @NotEmpty String email, @NotEmpty String password) {
+    public User(@NotNull @NotEmpty String firstName, @NotNull @NotEmpty String lastName, @NotNull @NotEmpty String email, @NotNull @NotEmpty String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -42,11 +41,11 @@ public class User implements Serializable {
     public User() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

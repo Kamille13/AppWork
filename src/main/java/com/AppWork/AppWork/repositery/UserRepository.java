@@ -1,6 +1,6 @@
-package repositery;
+package com.AppWork.AppWork.repositery;
 
-import model.User;
+import com.AppWork.AppWork.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
