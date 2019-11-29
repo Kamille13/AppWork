@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
@@ -28,8 +29,20 @@ public class User implements Serializable {
     private String email;
 
     @NotNull
-    @NotEmpty
+    @Size(min = 8)
     private String password;
+
+    @NotNull
+    @NotEmpty
+    private String apiKey;
+
+    public String getApiKey() {
+        return apiKey;
+    }
+
+    public void setApiKey(String apiKey) {
+        this.apiKey = apiKey;
+    }
 
     public User(@NotNull @NotEmpty String firstName, @NotNull @NotEmpty String lastName, @NotNull @NotEmpty String email, @NotNull @NotEmpty String password) {
         this.firstName = firstName;
