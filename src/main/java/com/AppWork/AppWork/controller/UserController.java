@@ -31,7 +31,12 @@ public class UserController {
         User userFromDB = userRepository.findById(userId).get();
         if(!userFromDB.getApiKey().equals(apiKey)){
             return null;
-
+        }
+        if(userUpdate.getFirstName() != null && !userUpdate.getFirstName().isEmpty()){
+            userFromDB.setFirstName(userUpdate.getFirstName());
+        }
+        if(userUpdate.getLastName() != null && !userUpdate.getLastName().isEmpty()){
+            userFromDB.setLastName(userUpdate.getLastName());
         }
         if(userUpdate.getEmail() != null && !userUpdate.getEmail().isEmpty()){
             userFromDB.setEmail(userUpdate.getEmail());
