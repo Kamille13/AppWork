@@ -56,4 +56,9 @@ public class UserController {
     public User signInByApiKey(@PathVariable String apiKey) {
         return userRepository.findByApiKey(apiKey);
     }
+
+    @DeleteMapping("users/{userId}")
+    public void deleteUser(@PathVariable Long userId){
+        userRepository.deleteById(userId);
+    }
 }
